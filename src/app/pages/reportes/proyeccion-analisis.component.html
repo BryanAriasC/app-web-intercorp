@@ -1,0 +1,118 @@
+<div class="row">
+
+    <div class="col-4">
+
+        <div class="card text-white bg-secondary mb-3">
+            <div class="card-header text-center"><b>Total de Clientes</b></div>
+            <div class="card-body">
+                <h3 class="card-title text-center">
+
+                    <i class="fas fa-user mr-3"></i>
+                    <b>{{ tot_clientes }}</b>
+                </h3>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-4">
+
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-header text-center"><b>Total clientes nuevos hoy</b></div>
+            <div class="card-body">
+                <h3 class="card-title text-center">
+
+                    <i class="fas fa-user mr-3"></i>
+                    <b>{{ tot_clientes_new }}</b>
+                </h3>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-5">
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-12 mb-2">
+        <h4> <i class="fas fa-columns"></i> Clientes que cumplen años este mes</h4>
+    </div>
+    <div class="col-4">
+
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header text-center"><b> {{ ( fecha_actual | date:'MMMM') | capitalizado }} </b></div>
+            <div class="card-body">
+                <h3 class="card-title text-center">
+
+                    <i class="fas fa-calendar mr-3"></i>
+                    <b>{{ tot_happy_mes }}</b>
+                </h3>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="col-7">
+        <table *ngIf="clientesHappy.length > 0" class="table animate__animated animate__fadeIn">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Clientes</th>
+                    <th scope="col">Fecha Nacimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of clientesHappy; let i = index">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ cliente.nombre }} {{ cliente.apellido }}</td>
+                    <td>{{ cliente.fecha_nacimiento }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-5">
+
+
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-12 mb-2">
+        <h4> <i class="fas fa-columns"></i> Promedio registro de clientes por mes del año 2020</h4>
+    </div>
+
+    <div class="col-6">
+        <table *ngIf="clientesHappy.length > 0" class="table animate__animated animate__fadeIn">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Mes</th>
+                    <th scope="col">Promedio Registro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let d of arr_prom_mes; let i = index">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ d.mes }}</td>
+                    <td>{{ d.cont }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+</div>

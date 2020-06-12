@@ -1,0 +1,66 @@
+<h2 class="animate__animated animate__bounceInLeft">
+    Datos del cliente
+</h2>
+<hr>
+
+
+<div class="row text-right animate__animated animate__bounceInLeft">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/heroes">
+      <i class="fa fa-arrow-left"></i>
+      Regresar
+    </button>
+    </div>
+</div>
+
+
+
+<div class="row animate__animated animate__bounceInLeft">
+    <div class="col">
+
+        <form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardarCliente()">
+
+            <div class="form-group ">
+                <label>Firebase ID</label>
+                <input type="text " class="form-control" placeholder="Firebase ID" formControlName="id" disabled="disabled">
+                <small class="form-text text-muted ">Este campo es autogenerado</small>
+            </div>
+
+
+            <div class="form-group ">
+                <label>Nombre</label>
+                <input type="text " class="form-control" formControlName="nombre" [class.is-invalidad]="nombreNoValido" placeholder="Nombre del cliente">
+                <small *ngIf="nombreNoValido" class="form-text text-danger">Ingrese 2 digitos como minimo</small>
+
+            </div>
+
+            <div class="form-group ">
+                <label>Apellido</label>
+                <input type="text " class="form-control" formControlName="apellido" [class.is-invalidad]="apellidoNoValido" placeholder="Apellidos del cliente">
+                <small *ngIf="apellidoNoValido" class="form-text text-danger">Es necesario ingresar apellidos</small>
+            </div>
+
+            <div class="form-group">
+                <label>Fecha Nacimiento</label>
+                <input type="date" class="form-control" formControlName="fecha_nacimiento" [class.is-invalidad]="fechaNacimientoNoValido" placeholder="Fecha Nacimiento del cliente">
+                <small *ngIf="fechaNacimientoNoValido" class="form-text text-danger">Es necesario ingresar fecha de nacimiento</small>
+            </div>
+
+            <div class="form-group ">
+                <label>Edad</label>
+                <input type="number" value="0" min="0" max="150" class="form-control" formControlName="edad" [class.is-invalidad]="edadNoValido" placeholder="Edad del cliente">
+                <small *ngIf="edadNoValido" class="form-text text-danger">Es necesario ingresar edad</small>
+            </div>
+
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                <i class="fa fa-save"></i>    <b>   Guardar </b>
+                </button>
+            </div>
+
+        </form>
+
+
+    </div>
+</div>

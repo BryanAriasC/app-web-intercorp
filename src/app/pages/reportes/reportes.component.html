@@ -1,0 +1,17 @@
+<div class="row mb-3">
+
+    <div class="col-12 text-center">
+
+        <div class="btn-group" role="group" aria-label="Acceso a reportes">
+            <button type="button" class="btn btn-secondary" [routerLink]="['promedio']" routerLinkActive="active">Promedio de edad</button>
+            <button type="button" class="btn btn-secondary" [routerLink]="['desviacion_estandar']" routerLinkActive="active">Desviación estándar</button>
+            <button type="button" class="btn btn-secondary" [routerLink]="['proyeccion']" routerLinkActive="active">Proyección y análisis</button>
+            <button type="button" class="btn btn-secondary" [routerLink]="['clientes']" routerLinkActive="active">Listado de Clientes (Fecha probable de muerte)</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<router-outlet></router-outlet>
